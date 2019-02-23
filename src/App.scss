@@ -1,0 +1,13 @@
+.app {
+  &__suggestions {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+  }
+  &__map {
+    height: 90vh;
+    width: 80%;
+    display: inline-block;
+    position: fixed;
+  }
+}
