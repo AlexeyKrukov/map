@@ -1,55 +1,50 @@
 import React, { Component } from 'react';
-import { GoogleMap, Marker, withGoogleMap, withScriptjs, Polyline } from "react-google-maps";
-import  { Input, Suggestions } from './components'
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
+import  { Input, Suggestions, Map } from './components'
 
 import './App.scss';
 
 
 class App extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+          center: [55.751574, 17.573856]
+      };
+  }
   render() {
-      const Map = withScriptjs(withGoogleMap((props) =>
-          <GoogleMap
-              defaultZoom={8}
-              defaultCenter={{ lat: 0, lng: 0 }}
-              onMapIdle={() => {
-                  let ne = this.map.getBounds().getNorthEast();
-                  let sw = this.map.getBounds().getSouthWest();
-                  console.log(ne.lat() + ";" + ne.lng());
-                  console.log(sw.lat() + ";" + sw.lng());
-              }}
-          >
-              {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} onDragEnd={(coord, index) => this.setMapCenterPoint(coord, index)} draggable />}
-              {props.isMarkerShown && <Marker position={{ lat: -24.397, lng: 150.644 }} draggable />}
-              {props.isMarkerShown && <Marker position={{ lat: -14.397, lng: 100.644 }} draggable />}
-              <Polyline path={[{ lat: -34.397, lng: 150.644 }, { lat: -24.397, lng: 150.644 }, { lat: -14.397, lng: 100.644 }]}/>
-          </GoogleMap>
-      ));
-    return (
+      const mapState = {
+          center: this.state.center,
+          zoom: 5
+      };
+
+      const WorkMap = () => (
+          <YMaps>
+              <Map instanceRef={(ref) => {
+                    this.map = ref;
+                   // const center = this.map.getCenter();
+                    }}
+                    onBoundsChange={()=> {
+                       const center = this.map.getCenter();
+                       this.setState({center: center});
+                   }}
+                  defaultState={mapState} width={1100} height={800}>
+                  <Placemark geometry={this.state.center} />
+              </Map>
+          </YMaps>
+      );
+      return (
         <div className="app">
             <div className="app__suggestions">
                 <Input />
                 <Suggestions />
             </div>
             <div className="app__map">
-                <Map isMarkerShown
-                     ref="map"
-                     googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
-                     getCenter={this.getCenter}
-                     loadingElement={<div style={{ height: `100%` }} />}
-                     containerElement={<div style={{ height: `100%` }} />}
-                     mapElement={<div style={{ height: `100%` }} />}
-                />
+                <WorkMap />
             </div>
         </div>
     );
   }
-    _handleZoomChanged() {
-        this.setMapCenterPoint()
-    }
-
-    setMapCenterPoint(coord, index) {
-        console.log(9999, coord, coord.latLng.lat(), coord.latLng.lng());
-    }
 }
 
 export default App;
