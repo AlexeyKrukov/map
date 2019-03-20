@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "file-entry-cache": "^5.0.1",
     "google-map-react": "^1.1.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.3",
@@ -16,9 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eslint": "eslint --debug"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,5 +27,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-plugin-react": "^7.12.4"
+  }
 }

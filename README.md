@@ -1,68 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Q1
+С точки зрения пользователя:
+В хорошем приложении нет тормозов, багов, оно не закрывается само по себе, им приятно пользоваться, у него приятный интерфейс, оно бесплатное.
+С точки зрения менеджера проекта:
+Если на приложение нет или почти нет жалоб от клиентов и пользователей.
+С точки зрения дизайнера:
+Приложение выполнено в соответствии с правилами сочетаемости цветов, от его использования "не болят глаза" и нет жалоб от пользователей.
+С точки зрения верстальщика:
+Все элементы "на своем месте", то есть при наведении на элемент при просмотре dom-дерева выделится именно тот элемент, который описывается в дереве. Верстка не должна "разъезжаться" при изменении размера экрана, например.
+C точки зрения серверного программиста:
+Нет никаких проблем с выгрузкой, загрузкой данных, и, как следствие, провисаний, все, что связано с backend работает корректно и без нареканий с какой бы то ни было стороны.
+Q2
+Я разрабатывал сайты только с использованием технологии React/redux. Лично у меня иногда возникала такая проблема: компоненты с react принято переиспользовать, то есть использовать много раз во многих местах. Это одновременно и жирный плюс и жирный минус, по моему мнению, так как с одной стороны, это помогает уменьшить дублирование кода, а с другой, может произойти ситуация, когда ты что-то исправил в компоненте, он стал отображаться так, как требуется, но вместе с тем местом, где нужно было сделать исправления, перерисовался компонент и в других местах, то есть там, где это не нужно было делать.
+Q3
+Говоря по-русски, это умные компоненты и глупые компоненты. Глупые компоненты только отрисовывают то, что в них содержится и больше не делают ничего. Умные же компоненты могут манипулировать данными, менять их, например, из них можно вызвать экшен, если мы хотим поменять что-то в store
+Q4
+Наследование в JS было изанчально прототипным, позже, в es6, в язык добавили классы и ключевое слово extends, с помощью которого можно класс может унаследоваться от другого. Прототипный вариант я использовал только один раз здесь https://github.com/AlexeyKrukov/BlackJack-on-JS Наследование в es6 я использую постоянно, так как при создании react-компонента нужно наследоваться либо от Сomponent, либо от PureComponent.
+Q5
+Мне не приходилось покрывать код тестами, честно говоря. В рамках самообучения я немного освоил mocha.
+Q6
+Спросить у дизайнера или у старших товарищей. Никакой самодеятельности, чтобы не пришлось потом переделывать.
+Q7
+eslint, ide PHPStorm
+Q8
+stackoverflow, youtube, learn.javascript.ru, myrusakov. В основном, все мои интересы лежат в ит-сфере, ничем другим особо не интересуюсь.
+Q9
+У меня год опыта работы с js, с фронтом и бекендом, я студент первого курса магистратуры. Вот гитхаб: https://github.com/AlexeyKrukov Не судите строго. 
