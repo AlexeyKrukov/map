@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case 'ADD_POINT':
             let points = [];
-            Object.assign(points, state.points)
+            Object.assign(points, state.points);
             action.payload.id = ++state.lastId;
             points.push(action.payload);
             return {
@@ -29,6 +29,25 @@ export default (state = initialState, action) => {
             return {
                 points: points,
                 lastId: maxKey
+            };
+        case 'UPDATE_COORDINATES':
+            points = [];
+            Object.assign(points, state.points);
+            for (let i = 0; i < state.points.length; i++) {
+                if (state.points[i].id === action.payload.id) {
+                    points[i].coordinates = action.payload.coordinates;
+                }
+            }
+            return {
+                points: points,
+                lastId: action.payload.id
+            };
+        case 'UPDATE_POINTS':
+            points = [];
+            Object.assign(points, action.payload.points);
+            return {
+                points: points,
+                lastId: state.lastId
             };
         default:  return {
             ...state

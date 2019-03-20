@@ -57,7 +57,7 @@ class Suggestions extends Component {
             result.source.index,
             result.destination.index
         );
-
+        this.props.updatePoints(points);
         this.setState({
             points
         });

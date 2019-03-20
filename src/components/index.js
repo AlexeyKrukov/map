@@ -1,9 +1,9 @@
 import Input from './input';
 import Suggestions from './suggestions';
-import Map from './map';
+import AppMap from './map';
 
 export {
     Input,
     Suggestions,
-    Map
+    AppMap
 };

@@ -21,10 +21,10 @@ class Input extends Component {
     }
 
     _sendPoint(e) {
-        const { addPoint } = this.props;
+        const { addPoint, centerCoordinates } = this.props;
         const { value } = this.state;
         if (e.keyCode === 13) {
-            addPoint(value)
+            addPoint(value, centerCoordinates)
         }
 
     }
